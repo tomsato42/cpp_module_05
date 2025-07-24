@@ -19,7 +19,7 @@ SRC :=	main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
-#		RobotomyRequestForm.cpp\
+		RobotomyRequestForm.cpp\
 #		PresidentialPardonForm.cpp\
 	
 

@@ -1,5 +1,7 @@
 #include "PresidentialPardonForm.h"
 
+#include <iostream>
+
 PresidentialPardonForm::PresidentialPardonForm()
     : AForm("PresidentialPardonForm", 25, 5), target_("default_target") {
 }
@@ -28,4 +30,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
     AForm::execute(executor);
+    std::cout << "*info : " << target_ << " has been graciously pardoned by the magnificent Zaphod Beeblebrox." << std::endl;
 }

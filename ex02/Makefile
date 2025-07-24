@@ -20,7 +20,7 @@ SRC :=	main.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
-#		PresidentialPardonForm.cpp\
+		PresidentialPardonForm.cpp\
 	
 
 OBJ := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRC))

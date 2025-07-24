@@ -1,8 +1,9 @@
 #include <iostream>
 #include "AForm.h"
 #include "Bureaucrat.h"
-#include "RobotomyRequestForm.h"
 #include "ShrubberyCreationForm.h"
+#include "RobotomyRequestForm.h"
+#include "PresidentialPardonForm.h"
 
 int main() {
     const Bureaucrat president("President", 1);
@@ -96,7 +97,7 @@ int main() {
 
         // フォーム作成
         try {
-            PardonForm = new ShrubberyCreationForm("Pardon");
+            PardonForm = new PresidentialPardonForm("Pardon");
             std::cout << *PardonForm << std::endl;
         } catch (const std::exception &e) {
             std::cerr << "Form creation failed: " << e.what() << std::endl;
@@ -120,7 +121,7 @@ int main() {
 
         // 実行（署名後）
         try {
-            PardonForm->execute(bob);
+            PardonForm->execute(president);
             std::cout << "Executed successfully" << std::endl;
         } catch (const std::exception &e) {
             std::cerr << "Execute after signing failed: " << e.what() << std::endl;

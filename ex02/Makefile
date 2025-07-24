@@ -34,6 +34,7 @@ re:
 
 clean:
 	$(RM) $(OBJ_DIR)
+	$(RM) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)

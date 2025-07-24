@@ -24,27 +24,13 @@ int main() {
         }
 
         // 実行（署名前）
-        try {
-            ShrubberyForm->execute(adam);
-        } catch (const std::exception &e) {
-            std::cerr << "Execute failed: " << e.what() << std::endl;
-        }
+        adam.executeForm(*ShrubberyForm);
 
         // 大統領による署名
-        try {
-            ShrubberyForm->beSigned(president);
-            std::cout << "Signed by president: " << *ShrubberyForm << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << "President signing failed: " << e.what() << std::endl;
-        }
+        president.signForm(*ShrubberyForm);
 
         // 実行（署名後）
-        try {
-            ShrubberyForm->execute(adam);
-            std::cout << "Executed successfully" << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << "Execute after signing failed: " << e.what() << std::endl;
-        }
+        adam.executeForm(*ShrubberyForm);
 
         delete ShrubberyForm;
     }
@@ -63,29 +49,15 @@ int main() {
         }
 
         // 実行（署名前）
-        try {
-            RobotomyForm->execute(adam);
-        } catch (const std::exception &e) {
-            std::cerr << "Execute failed: " << e.what() << std::endl;
-        }
+        adam.executeForm(*RobotomyForm);
 
         // アダムによる署名
-        try {
-            RobotomyForm->beSigned(adam);
-            std::cout << "Signed by Adam: " << *RobotomyForm << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << "Adam signing failed: " << e.what() << std::endl;
-        }
+        adam.signForm(*RobotomyForm);
 
         // 実行（署名後）
         std::cout << "--------------------------------" << std::endl;
         for (int i = 0; i < 4; i++) {
-            try {
-                RobotomyForm->execute(adam);
-                std::cout << "Executed successfully" << std::endl;
-            } catch (const std::exception &e) {
-                std::cerr << "Execute after signing failed: " << e.what() << std::endl;
-            }
+            adam.executeForm(*RobotomyForm);
         }
 
         delete RobotomyForm;
@@ -105,27 +77,13 @@ int main() {
         }
 
         // 実行（署名前）
-        try {
-            PardonForm->execute(bob);
-        } catch (const std::exception &e) {
-            std::cerr << "Execute failed: " << e.what() << std::endl;
-        }
+        president.executeForm(*PardonForm);
 
         // 大統領による署名
-        try {
-            PardonForm->beSigned(president);
-            std::cout << "Signed by president: " << *PardonForm << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << "President signing failed: " << e.what() << std::endl;
-        }
+        president.signForm(*PardonForm);
 
         // 実行（署名後）
-        try {
-            PardonForm->execute(president);
-            std::cout << "Executed successfully" << std::endl;
-        } catch (const std::exception &e) {
-            std::cerr << "Execute after signing failed: " << e.what() << std::endl;
-        }
+        president.executeForm(*PardonForm);
 
         delete PardonForm;
     }

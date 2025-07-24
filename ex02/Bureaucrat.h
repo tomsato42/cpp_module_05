@@ -3,9 +3,11 @@
 
 #include <string>
 #include <exception>
-#include <ostream>
+#include "AForm.h"
 
 // 官僚クラス
+class AForm;
+
 class Bureaucrat {
 public:
     Bureaucrat();
@@ -24,7 +26,11 @@ public:
 
     void promote(); // 昇格
 
-    void demote();  // 降格
+    void demote(); // 降格
+
+    void signForm(AForm &f) const;
+
+    void executeForm(AForm const &form) const;
 
     class GradeTooHighException : public std::exception {
     public:

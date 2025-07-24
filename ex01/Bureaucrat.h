@@ -4,8 +4,10 @@
 #include <string>
 #include <exception>
 #include <ostream>
+#include "Form.h"
 
 // 官僚クラス
+class Form;
 class Bureaucrat {
 public:
     Bureaucrat();
@@ -25,6 +27,8 @@ public:
     void promote(); // 昇格
 
     void demote();  // 降格
+
+    void signForm(Form &f) const;
 
     class GradeTooHighException : public std::exception {
     public:

@@ -1,5 +1,7 @@
 #include "Bureaucrat.h"
 
+#include <iostream>
+
 Bureaucrat::Bureaucrat() : name_(std::string("Bob")) {
     grade_ = 150;
 }
@@ -48,6 +50,15 @@ void Bureaucrat::demote() {
         throw GradeTooLowException();
     }
     grade_++;
+}
+
+void Bureaucrat::signForm(Form &f) const {
+    try {
+        f.beSigned(*this);
+        std::cout << "Bureaucrat " << name_ << " signed " << f.getName() <<std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << name_ << " couldn’t sign " <<  f.getName() << " because " << e.what() << "." << std::endl;
+    }
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

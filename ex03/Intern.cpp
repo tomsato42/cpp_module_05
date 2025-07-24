@@ -36,7 +36,7 @@ Intern &Intern::operator=(const Intern &other) {
     return *this;
 }
 
-AForm *Intern::makeForm(const std::string &formType, const std::string &formName) {
+AForm *Intern::makeForm(const std::string &formType, const std::string &formName) const {
     AForm *newForm = NULL;
     if (formType.empty() || formName.empty()) {
         std::cerr << "Intern cannot create a form with empty type or name." << std::endl;
@@ -56,7 +56,10 @@ AForm *Intern::makeForm(const std::string &formType, const std::string &formName
     }
     if (newForm == NULL) {
         std::cout << "formType: " << formType << " is invalid." << std::endl;
+
     }
-    std::cout << "Intern creates " << *newForm << "." << std::endl;
+    else {
+        std::cout << "Intern creates " << *newForm << "." << std::endl;
+    }
     return newForm;
 }

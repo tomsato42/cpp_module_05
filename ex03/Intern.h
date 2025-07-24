@@ -20,7 +20,7 @@ public:
 
     Intern &operator=(const Intern &);
 
-    AForm *makeForm(const std::string &formName, const std::string &formType);
+    AForm *makeForm(const std::string &formType, const std::string &formName) const;
 
 private:
     static const int numberOfForms = 3;

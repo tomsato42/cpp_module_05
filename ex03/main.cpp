@@ -13,6 +13,29 @@ int main() {
     const Bureaucrat bob("Bob", 150);
     Intern intern = Intern();
     std::cout << "--------------------------------" << std::endl;
+    // internによるフォーム作成のテスト
+    {
+        {
+            std::cout << std::right << BOLD << CYAN << std::setw(10) << "Intern" << RESET << ": ";
+            const AForm *form = intern.makeForm("shrubbery creation", "HOME");
+            if (form != NULL) {
+                delete form;
+            }
+        } {
+            std::cout << std::right << BOLD << CYAN << std::setw(10) << "Intern" << RESET << ": ";
+            const AForm *form = intern.makeForm("no exist form type", "Home");
+            if (form != NULL) {
+                delete form;
+            }
+        } {
+            std::cout << std::right << BOLD << CYAN << std::setw(10) << "Intern" << RESET << ": ";
+            const AForm *form = intern.makeForm("shrubbery creation", "");
+            if (form != NULL) {
+                delete form;
+            }
+        }
+    }
+    std::cout << "--------------------------------" << std::endl;
     // ShrubberyCreationFormのテスト
     {
         AForm *ShrubberyForm = NULL;

@@ -26,6 +26,8 @@ public:
 
     virtual void execute(Bureaucrat const &executor) const = 0;
 
+    virtual AForm *create(const std::string &target) const = 0;
+
     std::string getName() const;
 
     bool isSigned() const;

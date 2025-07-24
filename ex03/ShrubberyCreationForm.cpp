@@ -31,7 +31,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     AForm::execute(executor);
 
-    std::ofstream file(std::string(target_+"_shrubbery").c_str());
+    std::ofstream file(std::string(target_ + "_shrubbery").c_str());
     if (!file)
         throw std::ios_base::failure("Failed to open file");
 
@@ -58,4 +58,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
             "                  `-'  `-'`-'-'\n";
 
     file.close();
+}
+
+AForm *ShrubberyCreationForm::create(const std::string &target) const {
+    return new ShrubberyCreationForm(target);
 }

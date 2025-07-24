@@ -21,7 +21,7 @@ SRC :=	main.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
 		PresidentialPardonForm.cpp\
-#		Intern.cpp\
+		Intern.cpp\
 	
 
 OBJ := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRC))

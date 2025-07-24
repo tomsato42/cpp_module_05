@@ -16,6 +16,8 @@ public:
 
     void execute(Bureaucrat const &executor) const;
 
+    AForm *create(const std::string &target) const;
+
 private:
     std::string target_;
 };

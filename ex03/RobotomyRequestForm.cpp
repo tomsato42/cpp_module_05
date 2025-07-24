@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 RobotomyRequestForm::RobotomyRequestForm()
     : AForm("RobotomyRequestForm", 72, 45) {
@@ -36,10 +37,15 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     AForm::execute(executor);
-    std::cout << "*drilling noises*" << std::endl;
+    std::cout << std::endl << std::right << std::setw(10) << "Info" << ":" << "*drilling noises*" << std::endl;
+    std::cout << std::right << std::setw(10) << "Result" << ":";
     if (rand() % 2 == 0) {
-        std::cout << "Robotomy on " << target_ << " has been successful!" << std::endl;
+        std::cout << BOLD << BLUE << "Robotomy on " << target_ << " has been successful!" << RESET << std::endl;
     } else {
-        std::cout << "Robotomy on " << target_ << " has failed!" << std::endl;
+        std::cout << BOLD << RED << "Robotomy on " << target_ << " has failed!" << RESET << std::endl;
     }
+}
+
+AForm *RobotomyRequestForm::create(const std::string &target) const {
+    return new RobotomyRequestForm(target);
 }

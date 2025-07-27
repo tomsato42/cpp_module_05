@@ -4,7 +4,7 @@
 
 int main() {
     std::cout << "--------------------------------" << std::endl; {
-        Bureaucrat bob;
+        const Bureaucrat bob;
         std::cout << bob << std::endl;
 
         Form formA("formA", 150, 150);

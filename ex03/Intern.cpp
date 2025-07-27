@@ -56,10 +56,8 @@ AForm *Intern::makeForm(const std::string &formType, const std::string &formName
     }
     if (newForm == NULL) {
         std::cout << "formType: " << formType << " is invalid." << std::endl;
-
+        return NULL;
     }
-    else {
-        std::cout << "Intern creates " << *newForm << "." << std::endl;
-    }
+    std::cout << "Intern creates " << *newForm << "." << std::endl;
     return newForm;
 }

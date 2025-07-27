@@ -55,7 +55,7 @@ void Bureaucrat::demote() {
 void Bureaucrat::signForm(AForm &f) const {
     try {
         f.beSigned(*this);
-        std::cout << "Bureaucrat " << name_ << " signed " << f.getName() << std::endl;
+        std::cout <<name_ << " signed " << f.getName() << std::endl;
     } catch (const std::exception &e) {
         std::cerr << name_ << " couldn’t sign " << f.getName() << " because " << e.what() << "." << std::endl;
     }
@@ -64,7 +64,7 @@ void Bureaucrat::signForm(AForm &f) const {
 void Bureaucrat::executeForm(AForm const &form) const {
     try {
         form.execute(*this);
-        std::cout << "Bureaucrat " << name_ << " executed " << form.getName() << std::endl;
+        std::cout << name_ << " executed " << form.getName() << std::endl;
     } catch (const std::exception &e) {
         std::cerr << name_ << " couldn’t execute " << form.getName() << " because " << e.what() << "." << std::endl;
     }
@@ -78,6 +78,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low";
 }
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
-    return os << b.getName() << " bureaucrat grade " << b.getGrade() << ".";
+std::ostream & operator<<(std::ostream &os, const Bureaucrat &b) {
+    return os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
 }

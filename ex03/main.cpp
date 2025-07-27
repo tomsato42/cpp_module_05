@@ -13,6 +13,14 @@ int main() {
     const Bureaucrat bob("Bob", 150);
     Intern intern = Intern();
     std::cout << "--------------------------------" << std::endl;
+    //課題にある例
+    {
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        delete rrf;
+    }
+    std::cout << "--------------------------------" << std::endl;
     // internによるフォーム作成のテスト
     {
         {

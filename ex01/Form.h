@@ -5,21 +5,21 @@
 #include <ostream>
 #include "Bureaucrat.h"
 class Bureaucrat;
-class AForm {
+class Form {
 public:
-    AForm();
+    Form();
 
-    AForm(const std::string &name, int gradeToSign, int gradeToExecute);
+    Form(const std::string &name, int gradeToSign, int gradeToExecute);
 
     void checkException() const;
 
-    AForm(const char* &name, int gradeToSign, int gradeToExecute);
+    Form(const char* &name, int gradeToSign, int gradeToExecute);
 
-    ~AForm();
+    ~Form();
 
-    AForm(const AForm &);
+    Form(const Form &);
 
-    AForm &operator=(const AForm &);
+    Form &operator=(const Form &);
 
     void beSigned(const Bureaucrat &bureaucrat);
 
@@ -48,6 +48,6 @@ private:
     const int gradeToExecute_;
 };
 
-std::ostream &operator<<(std::ostream &os, const AForm &f);
+std::ostream &operator<<(std::ostream &os, const Form &f);
 
 #endif // FORM_H
